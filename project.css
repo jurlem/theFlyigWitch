@@ -14,14 +14,13 @@ html {
 }
 
 /* the flying div */
-.a {
+.flying–witch {
     width: 100px;
     height:100px;
     background-image: url('./images/h10.jpg');
     position:fixed;
     border-radius: 15px;
-
-
+    visibility: hidden;
 }
 
 h1 {
@@ -34,14 +33,28 @@ h1 {
   border-radius: 5px;
   padding: 10px;
   text-align: center;
-
+}
+h4 {
+  color: antiquewhite;
 }
 
+#instructions {
+  color: black;
+  height: 164px;
+  width: 250px;
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  background-color:rgb(78, 129, 99);
+  opacity: 0.8;
+  border: 5px solid rgb(42, 68, 53);
+  
+}
 
 
 h2 {
   text-align: center;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
+   overflow: hidden; /*Ensures the content is not revealed until the animation */
   border-right: .15em solid black; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
@@ -50,24 +63,27 @@ h2 {
     blink-caret .75s step-end infinite;
 }
 
-/* The typing effect */
+/* The typing effect*/
 @keyframes typing {
   from { width: 0 }
   to { width: 40% }
-}
+} 
 
 /* The typewriter cursor effect */
-@keyframes blink-caret {
+ @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: black; }
-}
+}  
 
 #main {
   margin: 0 auto;
+  position: relative; 
   display: inline–block;
   width: 40%;
 }
 .show { 
+position: absolute;
+z-index: 9999;
 height: 300px;
 width: 300px;
 }
