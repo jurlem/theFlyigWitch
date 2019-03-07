@@ -53,50 +53,14 @@ WitchGame.prototype.findTheWitch = function (name) {
 var finalScore = this.gameScore;
 
 WitchGame.prototype.score = function (name) {
-  // var witchesClicked = $('#main .clicked').length;
-  //       //console.log(witchesClicked)
-  // if (witchesClicked == 1 && name === "witch") {
-  //   finalScore = 10;
-  //   //$('.score').html(finalScore)
-  // }
-  // else if (witchesClicked == 2 && name === "witch") {
-  //   finalScore = 8;
-  //   //$('.score').html(finalScore)
-  // }
-  // else if (witchesClicked == 3 && name === "witch") {
-  //   finalScore = 6;
-  //   //$('.score').html(finalScore)
-  // }
-  // else if (witchesClicked == 4 && name === "witch") {
-  //   finalScore = 4;
-  //   //$('.score').html(finalScore)
-  // }
-  // else if (witchesClicked == 5 && name === "witch") {
-  //   finalScore = 2;
-  //   //$('.score').html(finalScore)
-  // }
-  // else if (witchesClicked == 6 && name === "witch") {
-  //   finalScore = 1;
-  //  // $('.score').html(finalScore)
-  // }
-  // $('.score').html(finalScore)
-
-// switch proov:
 var witchesClicked = $('#main .clicked').length;
 if (name === "witch"){
   finalScore = 10 - witchesClicked
 } 
 $('.score').html(finalScore)
-
-
 }
 
-// WitchGame.prototype.giveAHint = function () {
-//   setTimeout(function () {
-//     // shake a card
-//     
-//   }, 10000)
-// }
+
 
 WitchGame.prototype.flyingWitch = function () {
   // hide the button
@@ -122,11 +86,12 @@ WitchGame.prototype.flyingWitch = function () {
   setTimeout(function () {$('.flying–witch').css('visibility', 'hidden')}, 60000) // 1min
   
   
-  //var wonElement = `<div class="won"> WELL DONE!!! <br>YOUR SCORE: ${finalScore} </div>`
-    // setTimeout(function () {
-    //   $('#main').html(wonElement)
-    // }, 60000); // timeout
+  var wonElement = `<div class="won"> WELL DONE!!! <br>YOUR SCORE: ${finalScore} </div>`
+     setTimeout(function () {
+      $('#main').html(wonElement)
+     }, 60000); // timeout
   
+
   // the div starts flying
   animateDiv('.a');
   animateDiv('.b');

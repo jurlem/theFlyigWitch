@@ -66,6 +66,7 @@ $(document).ready(function () {
     }, 2000)
 
     theWitchGame.findTheWitch(random.name)
+    
     theWitchGame.score(random.name)
 
   })
