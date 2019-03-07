@@ -3,9 +3,10 @@
 
 var WitchGame = function (inputList) {
   this.inputList = inputList,
-  this.theWitch = ('witch');
   this.witchClicked = 0;
   this.gameScore = 0;
+  this.currentTime = 0
+  this.intervalId = 0
 }
 
 WitchGame.prototype.randomImage = function (inputList) {
@@ -31,7 +32,6 @@ WitchGame.prototype.startGame = function (inputList) {
 }
 
 
-
 WitchGame.prototype.findTheWitch = function (name) {
   console.log(name)
   var _this= this
@@ -41,47 +41,54 @@ WitchGame.prototype.findTheWitch = function (name) {
     // setTimeout(function () {
     //   $('#main').html(wonElement)
     // }, 1000); // timeout
-    //$('.again').html('CONTINUE').css('visibility', 'visible'); //show .again class visibility: visible;  
   
-  // $('#main').html('');
+    // if name == witch then hide all other cards from the table
+    setTimeout(function() {$('#main').css('visibility', 'hidden')}, 1000);
+
+    //and flying witch goes flying:
     _this.flyingWitch();
   } 
 } // end of findTheWitch()
 
 var finalScore = this.gameScore;
 
-
-
 WitchGame.prototype.score = function (name) {
-  var witchesClicked = $('#main .clicked').length;
-        //console.log(witchesClicked)
- debugger
-  if (witchesClicked == 1 && name === "witch") {
-    finalScore = 100;
-    //$('.score').html(finalScore)
-  }
-  else if (witchesClicked == 2 && name === "witch") {
-    finalScore = 80;
-    //$('.score').html(finalScore)
-  }
-  else if (witchesClicked == 3 && name === "witch") {
-    finalScore = 60;
-    //$('.score').html(finalScore)
-  }
-  else if (witchesClicked == 4 && name === "witch") {
-    finalScore = 40;
-    //$('.score').html(finalScore)
-  }
-  else if (witchesClicked == 5 && name === "witch") {
-    finalScore = 20;
-    //$('.score').html(finalScore)
-  }
-  else if (witchesClicked == 6 && name === "witch") {
-    finalScore = 10;
-   // $('.score').html(finalScore)
-  }
-  
-  $('.score').html(finalScore)
+  // var witchesClicked = $('#main .clicked').length;
+  //       //console.log(witchesClicked)
+  // if (witchesClicked == 1 && name === "witch") {
+  //   finalScore = 10;
+  //   //$('.score').html(finalScore)
+  // }
+  // else if (witchesClicked == 2 && name === "witch") {
+  //   finalScore = 8;
+  //   //$('.score').html(finalScore)
+  // }
+  // else if (witchesClicked == 3 && name === "witch") {
+  //   finalScore = 6;
+  //   //$('.score').html(finalScore)
+  // }
+  // else if (witchesClicked == 4 && name === "witch") {
+  //   finalScore = 4;
+  //   //$('.score').html(finalScore)
+  // }
+  // else if (witchesClicked == 5 && name === "witch") {
+  //   finalScore = 2;
+  //   //$('.score').html(finalScore)
+  // }
+  // else if (witchesClicked == 6 && name === "witch") {
+  //   finalScore = 1;
+  //  // $('.score').html(finalScore)
+  // }
+  // $('.score').html(finalScore)
+
+// switch proov:
+var witchesClicked = $('#main .clicked').length;
+if (name === "witch"){
+  finalScore = 10 - witchesClicked
+} 
+$('.score').html(finalScore)
+
+
 }
 
 // WitchGame.prototype.giveAHint = function () {
@@ -94,16 +101,31 @@ WitchGame.prototype.score = function (name) {
 WitchGame.prototype.flyingWitch = function () {
   // hide the button
   // $('.again').css('visibility', 'hidden');
+
+  // change h2 text:
+    $('h2').html('Click on the flying witch!!')
+    // show the timer:
+    $('#clock').css('visibility', 'visible');
+
+    // start timer:
+    clock.start()
+
   //make the div visible:
   $('.a').css('visibility', 'visible');
 
   // Bonus witches:
   setTimeout(function () {$('.b').css('visibility', 'visible')}, 10000)
-  setTimeout(function () {$('.c').css('visibility', 'visible')}, 15000)
+  setTimeout(function () {$('.c').css('visibility', 'visible')}, 20000)
   setTimeout(function () {$('.d').css('visibility', 'visible')}, 30000)
   
   // end of the game:
-  setTimeout(function () {$('.flying–witch').css('visibility', 'hidden')}, 50000) // 5min
+  setTimeout(function () {$('.flying–witch').css('visibility', 'hidden')}, 60000) // 1min
+  
+  
+  //var wonElement = `<div class="won"> WELL DONE!!! <br>YOUR SCORE: ${finalScore} </div>`
+    // setTimeout(function () {
+    //   $('#main').html(wonElement)
+    // }, 60000); // timeout
   
   // the div starts flying
   animateDiv('.a');
@@ -140,26 +162,27 @@ WitchGame.prototype.clickOnWitch = function () {
   var _this = this
   $('.flying–witch').on('click', function () {
     finalScore++
+    $('.score').html(finalScore);
+    
 
-    $('.score').html(finalScore)
+    //TOOLTIP bubble image:
+    $(_this).showBalloon();
+
+
   })
+
+  // show a little sign if you earn a point
+  //$(this).showBalloon().hideBalloon()
 };
 
-// WitchGame.prototype.bonusWitches = function () {
-  // create dynamically new divs after x time 
-// kas vaja siin uuesti lennutama hakata flyingWitch?
-// setTimeout(function () {
 
-//   $('.b').css('visibility', 'visible');
 
  
- 
-// }, 1000)
-// }
 
 // WitchGame.prototype.gameOver = function (){
 //   setTimeout(function (){
 //     $('#main').html("Game Over");
 //     }, 10000)
-
+// show points on screen 
 // }
+

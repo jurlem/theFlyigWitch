@@ -15,12 +15,15 @@ html {
 
 /* the flying div */
 .flying–witch {
-    width: 100px;
-    height:100px;
+    width: 125px;
+    height:125px;
     background-image: url('./images/h10.jpg');
     position:fixed;
     border-radius: 15px;
     visibility: hidden;
+    z-index: 9999;
+
+
 }
 
 h1 {
@@ -34,6 +37,7 @@ h1 {
   padding: 10px;
   text-align: center;
 }
+
 h4 {
   color: antiquewhite;
 }
@@ -122,4 +126,18 @@ img {
   height: 400px;
   font-size: 30px;
   color: rgb(34, 33, 33);
+}
+
+@font-face {
+  font-family: digital;
+  src: url(digital.ttf);
+}
+
+#clock {
+  font-size: 50px;
+  font-family: digital;
+  text-align: center;
+  color: wheat;
+  /* visibility: hidden; */
+  
 }

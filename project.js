@@ -29,6 +29,8 @@ var theList = [{
 ];
 
 $(document).ready(function () {
+  // hide the timer:
+  $('#clock').css('visibility', 'hidden');
 
   // makes a new game with theList items
   var theWitchGame = new WitchGame(theList);
@@ -36,30 +38,28 @@ $(document).ready(function () {
   // shuffles the images in theList array
   theWitchGame.randomImage(theList);
 
-  // starting point of the gsme - the pics are added dynamically
+  // starting point of the game - the pics are added dynamically
   theWitchGame.startGame(theList)
 
   console.log(theList)
 
   // Game on - player clicks on a choosen card:
   $('.box').on('click', function () {
-    //console.log('you clicked a witch')
     //console.log($(event.currentTarget))
     console.log($(this).attr('id'))
     $(this).toggleClass('clicked')
 
-    // show score also after firt click:
+    // show score also after first click:
     $('#corner').css('visibility', 'visible')
 
 
     var random = theWitchGame.inputList[$(this).attr('id')];
 
     $(this).attr('src', random.img);
-
     var _this = this;
-    setTimeout(function () {
-      $(_this).toggleClass('show box'); // !! messes view
-    }, 1000);
+    // setTimeout(function () {  // !! not in the middle
+    //   $(_this).toggleClass('show box');  
+    // }, 1000);
     setTimeout(function () {
       $(_this).css('visibility', 'hidden');
       //$("#snd1")[0].play(); // plays a sound of the image
@@ -79,14 +79,14 @@ $(document).ready(function () {
     // theWitchGame.bonusWitches()
   })
 
-// PART II clicking
-theWitchGame.clickOnWitch()
+  // PART II clicking
+  theWitchGame.clickOnWitch()
 
 
-//theWitchGame.gameOver();
+  //theWitchGame.gameOver();
 
 
-
-//theWitchGame.gameScore++
+  //theWitchGame.gameScore++
 
 }); // doc ready end
+
