@@ -49,7 +49,6 @@ $(document).ready(function () {
     // show score also after first click:
     $('#corner').css('visibility', 'visible')
 
-
     var random = theWitchGame.inputList[$(this).attr('id')];
 
     $(this).attr('src', random.img);

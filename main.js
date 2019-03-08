@@ -35,12 +35,6 @@ WitchGame.prototype.findTheWitch = function (name) {
   console.log(name)
   var _this = this
   if (name === "witch") {
-    // var wonElement = `<div class="won"> GOOD JOB! <br>NOW THE WITCH GOES FLYING, CLICK AT IT AS MUCH AS YOU CAN!  </div>`
-    //var wonElement = `<div class="won"> YOU WON!!! <br>YOUR SCORE: ${finalScore} </div>`
-    // setTimeout(function () {
-    //   $('#main').html(wonElement)
-    // }, 1000); // timeout
-
     // if name == witch then hide all other cards from the table
     setTimeout(function () {
       $('#main').css('visibility', 'hidden')
@@ -62,9 +56,6 @@ WitchGame.prototype.score = function (name) {
 }
 
 WitchGame.prototype.flyingWitch = function () {
-  // hide the button
-  // $('.again').css('visibility', 'hidden');
-
   // change h2 text:
   $('h2').html('Click on the flying witch!!')
   // show the timer:
@@ -129,21 +120,14 @@ WitchGame.prototype.clickOnWitch = function () {
   $('.flying–witch').on('click', function () {
     finalScore++
     $('.score').html(finalScore);
-
-
     //TOOLTIP bubble image:
     shown ? $(_this).hideBalloon() : $(_this).showBalloon();
     shown = !shown;
 debugger
   }).showBalloon({});
 
-
-
-  // show a little sign if you earn a point
-  //$(this).showBalloon().hideBalloon()
   _this.gameOver();
 };
-
 
 WitchGame.prototype.gameOver = function () {
   // show points on screen 
@@ -152,7 +136,7 @@ WitchGame.prototype.gameOver = function () {
     $('h2').html(wonElement + finalScore)
     $('.again').css('visibility', 'visible');
 
-  }, 63000); // timeout
+  }, 63000); 
 
 
 }
