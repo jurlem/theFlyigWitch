@@ -27,7 +27,7 @@ html {
 }
 
 h1 {
-  margin: 50px auto;
+  margin: 30px auto;
   color: black;
   font-size: 45px;
   font-weight: bold;
@@ -138,6 +138,18 @@ img {
   font-family: digital;
   text-align: center;
   color: wheat;
-  /* visibility: hidden; */
+  width: 110px;
+  margin: 0 auto;
+  visibility: hidden;
   
+}
+#sec, #msec {
+  width: 50px;
+  float: left;
+}
+
+#double-dots {
+  width:8px;
+  text-align: center;
+  float: left;
 }

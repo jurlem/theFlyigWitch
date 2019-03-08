@@ -1,7 +1,7 @@
 // constructior function
 function Timer() {
-  this.seconds = 60;
-  this.miliseconds = 100;
+  this.seconds = 59;
+  this.miliseconds = 99;
   this.intervalId = "";
 }
 

@@ -29,10 +29,7 @@ var theList = [{
 ];
 
 $(document).ready(function () {
-  // hide the timer:
-  $('#clock').css('visibility', 'hidden');
-
-  // makes a new game with theList items
+  // makes a new game from constructor:
   var theWitchGame = new WitchGame(theList);
 
   // shuffles the images in theList array
@@ -43,7 +40,7 @@ $(document).ready(function () {
 
   console.log(theList)
 
-  // Game on - player clicks on a choosen card:
+  // GAME ON - player clicks on a choosen card:
   $('.box').on('click', function () {
     //console.log($(event.currentTarget))
     console.log($(this).attr('id'))
@@ -64,30 +61,17 @@ $(document).ready(function () {
       $(_this).css('visibility', 'hidden');
       //$("#snd1")[0].play(); // plays a sound of the image
     }, 2000)
-
     theWitchGame.findTheWitch(random.name)
-    
     theWitchGame.score(random.name)
-
-  })
-
-  //click button loads PART II with flying witch
-  $('.again').on('click', function () {
-    //location.reload();
-    $('#main').html('');
-
-    // theWitchGame.flyingWitch();
-    // theWitchGame.bonusWitches()
   })
 
   // PART II clicking
   theWitchGame.clickOnWitch()
+  theWitchGame.gameOver();
 
-
-  //theWitchGame.gameOver();
-
-
-  //theWitchGame.gameScore++
-
+  // PART III start again:
+  $('.again').on('click', function () {
+    location.reload();
+  })
 }); // doc ready end
 
