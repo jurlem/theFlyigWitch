@@ -5,7 +5,7 @@ var WitchGame = function (inputList) {
   this.inputList = inputList,
     this.witchClicked = 0;
   this.gameScore = 0;
-  this.currentTime = 0
+  this.currentTime = 60
   this.intervalId = 0
 }
 
@@ -138,5 +138,18 @@ WitchGame.prototype.gameOver = function () {
 
   }, 63000); 
 
+//   var _this = this;
+//   this.intervalId = setInterval(function () {
+//     _this.currentTime-- ;
+//   }, 1000);
+// if (_this.currentTime ==0){
+//   var wonElement = "WELL DONE!!! YOUR SCORE: "
+//     $('h2').html(wonElement + finalScore)
+//     $('.again').css('visibility', 'visible');
 
+// }
 }
+
+
+
+
