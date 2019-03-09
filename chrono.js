@@ -6,11 +6,11 @@ function Timer() {
 }
 
 //start function
-Timer.prototype.start = function () {
-  this.intervalId = setInterval(this.run.bind(this), 10);
+Timer.prototype.start = function (cb) {
+  this.intervalId = setInterval(this.run.bind(this, cb), 10);
 };
 
-Timer.prototype.run = function () {
+Timer.prototype.run = function (cb) {
   if (this.miliseconds > 0) {
     this.miliseconds--;
     console.log((String(this.seconds).padStart(2,0)) + ":" + (String(this.miliseconds).padStart(2,0)))
@@ -20,6 +20,7 @@ Timer.prototype.run = function () {
 
   } else if (this.seconds == 0) {
     console.log("Stop this")
+    cb();
     // cleals interval = stops it
     clearInterval(this.intervalId)
   } else {

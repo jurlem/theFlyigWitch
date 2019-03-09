@@ -66,8 +66,7 @@ $(document).ready(function () {
 
   // PART II clicking
   theWitchGame.clickOnWitch()
-  theWitchGame.gameOver();
-
+  
   // PART III start again:
   $('.again').on('click', function () {
     location.reload();

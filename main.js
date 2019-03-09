@@ -56,13 +56,17 @@ WitchGame.prototype.score = function (name) {
 }
 
 WitchGame.prototype.flyingWitch = function () {
+  var _this = this;
   // change h2 text:
   $('h2').html('Click on the flying witch!!')
   // show the timer:
   $('#clock').css('visibility', 'visible');
 
   // start timer:
-  clock.start()
+  clock.start(function() {
+    _this.gameOver();
+  });
+
 
   //make the flying div visible:
   $('.a').css('visibility', 'visible');
@@ -78,10 +82,7 @@ WitchGame.prototype.flyingWitch = function () {
     $('.d').css('visibility', 'visible')
   }, 30000)
 
-  // end of the game:
-  setTimeout(function () {
-    $('.flying–witch').css('visibility', 'hidden')
-  }, 61500) // 1min
+
 
   // the div starts flying
   animateDiv('.a');
@@ -123,31 +124,20 @@ WitchGame.prototype.clickOnWitch = function () {
     //TOOLTIP bubble image:
     shown ? $(_this).hideBalloon() : $(_this).showBalloon();
     shown = !shown;
-debugger
   }).showBalloon({});
 
-  _this.gameOver();
+
 };
 
 WitchGame.prototype.gameOver = function () {
   // show points on screen 
   var wonElement = "WELL DONE!!! YOUR SCORE: "
-  setTimeout(function () {
     $('h2').html(wonElement + finalScore)
     $('.again').css('visibility', 'visible');
+     
+    // remove witches:
+    $('.flying–witch').css('visibility', 'hidden')
 
-  }, 63000); 
-
-//   var _this = this;
-//   this.intervalId = setInterval(function () {
-//     _this.currentTime-- ;
-//   }, 1000);
-// if (_this.currentTime ==0){
-//   var wonElement = "WELL DONE!!! YOUR SCORE: "
-//     $('h2').html(wonElement + finalScore)
-//     $('.again').css('visibility', 'visible');
-
-// }
 }
 
 
